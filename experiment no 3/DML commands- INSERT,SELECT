@@ -1,0 +1,93 @@
+mysql> insert into employee values(10,'eswar','manager',10000,932156782,'ap',2004);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employee;
++-------+---------+------------+--------+-----------+---------+---------------+
+| empid | empname | department | salary | phoneno   | address | yearofjoining |
++-------+---------+------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager    |  10000 | 932156782 | ap      |          2004 |
++-------+---------+------------+--------+-----------+---------+---------------+
+1 row in set (0.00 sec)
+mysql> insert into employee(empid,empname,department,salary,phoneno,address,yearofjoining) values(11,'edward','supervisior',15000,92457874,'chennai',2002),(13,'jones','manager',16000,85742,'ap',2002);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into employee(empid,empname,department,salary,phoneno,address,yearofjoining) values(14,'prakash','supervisior',15000,9245254,'chennai',2008),(15,'james','manager',16000,8574215,'ap',2002);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |   9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |   8574215 | ap      |          2002 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employee(empid,empname,department,salary,phoneno,address,yearofjoining) values(16,'mani','financial',1200,8574585,'delhi',2005),(20,'mahesh','supervisior',25000,8523147,'chennai',2018);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |   9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |   8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |   8574585 | delhi   |          2005 |
+|    20 | mahesh  | supervisior |  25000 |   8523147 | chennai |          2018 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into employee(empid,empname,department,salary,phoneno,address,yearofjoining) values(22,'pavan','financial',16500,758649,'delhi',2010),(25,'jackei','financial',12020,8574489,'delhi',2016);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |   9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |   8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |   8574585 | delhi   |          2005 |
+|    20 | mahesh  | supervisior |  25000 |   8523147 | chennai |          2018 |
+|    22 | pavan   | financial   |  16500 |    758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |   8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+9 rows in set (0.00 sec)
+
+mysql> select salary,salary*2 from employee;
++--------+----------+
+| salary | salary*2 |
++--------+----------+
+|  10000 |    20000 |
+|  15000 |    30000 |
+|  16000 |    32000 |
+|  15000 |    30000 |
+|  16000 |    32000 |
+|   1200 |     2400 |
+|  25000 |    50000 |
+|  16500 |    33000 |
+|  12020 |    24040 |
++--------+----------+
+9 rows in set (0.00 sec)
