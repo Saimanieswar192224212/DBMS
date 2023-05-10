@@ -1,0 +1,69 @@
+mysql> use mani;
+Database changed
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |   9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |   8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |   8574585 | delhi   |          2005 |
+|    20 | mahesh  | supervisior |  25000 |   8523147 | chennai |          2018 |
+|    22 | pavan   | financial   |  16500 |    758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |   8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+9 rows in set (0.00 sec)
+
+mysql> update employee set phoneno=93215487 where salary=10000;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> desc employee;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| empid         | int         | YES  |     | NULL    |       |
+| empname       | varchar(10) | YES  |     | NULL    |       |
+| department    | varchar(20) | YES  |     | NULL    |       |
+| salary        | int         | YES  |     | NULL    |       |
+| phoneno       | int         | YES  |     | NULL    |       |
+| address       | varchar(15) | YES  |     | NULL    |       |
+| yearofjoining | int         | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> select *from employee;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |  8574585 | delhi   |          2005 |
+|    20 | mahesh  | supervisior |  25000 |  8523147 | chennai |          2018 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+----------+---------+---------------+
+9 rows in set (0.00 sec)
+
+mysql> delete from employee where yearofjoining=2018;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employee;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |  8574585 | delhi   |          2005 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+----------+---------+---------------+
+8 rows in set (0.00 sec)
