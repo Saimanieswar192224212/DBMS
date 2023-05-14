@@ -1,3 +1,5 @@
+DML means DATA MANIPULATION LANGUAGE.
+DML means it represents a collection of programming languages explicity used to make changes in database.
 mysql> use mani;
 Database changed
 mysql> select *from employee;
