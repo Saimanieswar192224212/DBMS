@@ -1,3 +1,5 @@
+DDL means DATA DEFINITION LANGUAGE.
+DDL which defines the structure or schema of the database.
 mysql> use mani;
 Database changed
 mysql> create table employee(empid int,name varchar(20),department varchar(20),salary int,phoneno int,address varchar(15),yearofjoining int,bonus int);
@@ -114,3 +116,10 @@ mysql> desc employee;
 | yearofjoining | int         | YES  |     | NULL    |       |
 +---------------+-------------+------+-----+---------+-------+
 7 rows in set (0.00 sec)
+
+mysql> drop table employee;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>desc employee;
+empty set(0.00 sec)
