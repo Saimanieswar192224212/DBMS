@@ -1,0 +1,62 @@
+DML means DATA MANIPULATION LANGUAGE.
+DML means it represents a collection of programming languages explicity used to make changes in database.
+mysql> use mani;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_mani |
++-----------------+
+| employee        |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select *from employee;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |  8574585 | delhi   |          2005 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+----------+---------+---------------+
+8 rows in set (0.01 sec)
+
+mysql> update employee set address='hyderabad' where empname='mani';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from employee;
++-------+---------+-------------+--------+----------+-----------+---------------+
+| empid | empname | department  | salary | phoneno  | address   | yearofjoining |
++-------+---------+-------------+--------+----------+-----------+---------------+
+|    10 | eswar   | manager     |  10000 | 93215487 | ap        |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai   |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap        |          2002 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai   |          2008 |
+|    15 | james   | manager     |  16000 |  8574215 | ap        |          2002 |
+|    16 | mani    | financial   |   1200 |  8574585 | hyderabad |          2005 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi     |          2010 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi     |          2016 |
++-------+---------+-------------+--------+----------+-----------+---------------+
+8 rows in set (0.00 sec)
+
+mysql> delete from employee where address='hyderabad';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from employee;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+----------+---------+---------------+
+7 rows in set (0.00 sec)
