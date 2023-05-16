@@ -1,0 +1,99 @@
+mysql> use mani;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_mani |
++----------------+
+| employee       |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> desc employee;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| empid         | int         | YES  |     | NULL    |       |
+| empname       | varchar(10) | YES  |     | NULL    |       |
+| department    | varchar(20) | YES  |     | NULL    |       |
+| salary        | int         | YES  |     | NULL    |       |
+| phoneno       | int         | YES  |     | NULL    |       |
+| address       | varchar(15) | YES  |     | NULL    |       |
+| yearofjoining | int         | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select *from employee;
++-------+---------+-------------+--------+-----------+---------+---------------+
+| empid | empname | department  | salary | phoneno   | address | yearofjoining |
++-------+---------+-------------+--------+-----------+---------+---------------+
+|    10 | eswar   | manager     |  10000 | 932156782 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 |  92457874 | chennai |          2002 |
+|    13 | jones   | manager     |  16000 |     85742 | ap      |          2002 |
+|    14 | prakash | supervisior |  15000 |   9245254 | chennai |          2008 |
+|    15 | james   | manager     |  16000 |   8574215 | ap      |          2002 |
+|    16 | mani    | financial   |   1200 |   8574585 | delhi   |          2005 |
+|    20 | mahesh  | supervisior |  25000 |   8523147 | chennai |          2018 |
+|    22 | pavan   | financial   |  16500 |    758649 | delhi   |          2010 |
+|    25 | jackei  | financial   |  12020 |   8574489 | delhi   |          2016 |
++-------+---------+-------------+--------+-----------+---------+---------------+
+9 rows in set (0.00 sec)
+
+mysql> select count(department),department from employee group by department;
++-------------------+-------------+
+| count(department) | department  |
++-------------------+-------------+
+|                 3 | manager     |
+|                 3 | supervisior |
+|                 3 | financial   |
++-------------------+-------------+
+3 rows in set (0.00 sec)
+                               ** HAVING **
+                      
+mysql> select salary from employee having salary>15000;
++--------+
+| salary |
++--------+
+|  16000 |
+|  16000 |
+|  16500 |
++--------+
+3 rows in set (0.00 sec)
+
+mysql> select empname,salary from employee having salary>15000;
++---------+--------+
+| empname | salary |
++---------+--------+
+| jones   |  16000 |
+| james   |  16000 |
+| pavan   |  16500 |
++---------+--------+
+3 rows in set (0.00 sec)
+                              ** ORDER BY **
+                        
+mysql> select *from employee order by empname;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
++-------+---------+-------------+--------+----------+---------+---------------+
+7 rows in set (0.01 sec)
+
+mysql> select *from employee order by empname desc;
++-------+---------+-------------+--------+----------+---------+---------------+
+| empid | empname | department  | salary | phoneno  | address | yearofjoining |
++-------+---------+-------------+--------+----------+---------+---------------+
+|    14 | prakash | supervisior |  15000 |  9245254 | chennai |          2008 |
+|    22 | pavan   | financial   |  16500 |   758649 | delhi   |          2010 |
+|    13 | jones   | manager     |  16000 |    85742 | ap      |          2002 |
+|    15 | james   | manager     |  16000 |  8574215 | ap      |          2002 |
+|    25 | jackei  | financial   |  12020 |  8574489 | delhi   |          2016 |
+|    10 | eswar   | manager     |  10000 | 93215487 | ap      |          2004 |
+|    11 | edward  | supervisior |  15000 | 92457874 | chennai |          2002 |
++-------+---------+-------------+--------+----------+---------+---------------+
+7 rows in set (0.00 sec)
