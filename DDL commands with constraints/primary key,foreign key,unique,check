@@ -1,0 +1,87 @@
+                             ** PRIMARY KEY **
+                             
+mysql> CREATE TABLE DataFlair(
+    -> emp_id varchar(5) NOT NULL,
+    -> name varchar(50),
+    -> location varchar(50),
+    -> experience int,
+    -> PRIMARY KEY(emp_id));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc dataflair;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | varchar(5)  | NO   | PRI | NULL    |       |
+| name       | varchar(50) | YES  |     | NULL    |       |
+| location   | varchar(50) | YES  |     | NULL    |       |
+| experience | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+                             
+                             ** FOREIGN KEY **
+                              
+mysql> CREATE TABLE location(
+    -> location_id varchar(5) NOT NULL,
+    -> location varchar(50) NOT NULL,
+    -> office_size int,
+    -> PRIMARY KEY(location_id),
+    -> FOREIGN KEY(location) REFERENCES dataflair(emp_id));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc location;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| location_id | varchar(5)  | NO   | PRI | NULL    |       |
+| location    | varchar(50) | NO   | MUL | NULL    |       |
+| office_size | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+                          ** UNIQUE **
+
+mysql> create table person(id int,name varchar(10),age int,unique(id));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc persons;
+ERROR 1146 (42S02): Table 'eswar.persons' doesn't exist
+mysql> desc person;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  | UNI | NULL    |       |
+| name  | varchar(10) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+                            
+                            
+                              ** CHECK **
+                                
+mysql> create table bank(bankid int,bankname varchar(10),address varchar(10),check(address='ap'));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc bank;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| bankid   | int         | YES  |     | NULL    |       |
+| bankname | varchar(10) | YES  |     | NULL    |       |
+| address  | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into bank values(12,'sbi','ap');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into bank values(12,'sbi','ktdm');
+ERROR 3819 (HY000): Check constraint 'bank_chk_1' is violated.
+
+mysql> select *from bank;
++--------+----------+---------+
+| bankid | bankname | address |
++--------+----------+---------+
+|     12 | sbi      | ap      |
++--------+----------+---------+
+1 row in set (0.01 sec)
